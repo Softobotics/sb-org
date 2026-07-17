@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>body{margin:0;background:#ffffff} a{color:#13928A;text-decoration:none} a:hover{color:#0e756f}</style>
+</helmet>
+<dc-import name="SiteNav" active="services" hint-size="100%,72px"></dc-import>
+<div style="font-family:'Public Sans',sans-serif;color:#2B3351">
+
+  <section data-screen-label="Services Hero" style="background:#2B3351;color:#ffffff;padding:88px 24px 84px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-80px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(19,146,138,0.18)"></div>
+    <div style="position:absolute;bottom:-120px;left:-80px;width:360px;height:360px;border-radius:50%;background:rgba(19,146,138,0.08)"></div>
+    <div style="max-width:1100px;margin:0 auto;position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center">
+      <div>
+        <div style="display:inline-block;background:rgba(19,146,138,0.22);color:#5fd3cb;font-weight:700;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:20px">Services &amp; pricing</div>
+        <h1 style="font-family:'Space Grotesk',sans-serif;font-size:48px;line-height:1.08;letter-spacing:-0.03em;margin:0 0 18px;text-wrap:pretty">Everything you need to get your business online and growing.</h1>
+        <p style="font-size:17.5px;line-height:1.6;color:#c6cede;margin:0 0 30px;max-width:560px">Websites, online stores, ads and SEO, all under one roof. Honest pricing with GST shown clearly, a fixed timeline, and real support after launch.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:15.5px;padding:14px 26px;border-radius:10px" style-hover="background:#0e756f;color:#ffffff">Get a Free Quote</a>
+          <a href="#plans" style="background:transparent;color:#ffffff;font-weight:600;font-size:15.5px;padding:14px 26px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.25)" style-hover="border-color:#13928A;color:#5fd3cb">Compare Plans</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <sc-for list="{{ heroStats }}" as="hs" hint-placeholder-count="4">
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#5fd3cb">{{ hs.big }}</div>
+            <div style="font-size:13px;color:#b7c0d4;margin-top:2px">{{ hs.small }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Service Details" style="padding:80px 24px;background:#F5F6F8">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="max-width:640px;margin-bottom:48px">
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">What we do</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;line-height:1.2;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:pretty">Four things we do well for small businesses</h2>
+        <p style="font-size:16px;line-height:1.65;color:#4b5570;margin:0">From a simple business website to full-on marketing, here is exactly what you get and what it costs.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
+          <div style="background:#ffffff;border:1px solid #e6e8ee;border-radius:18px;overflow:hidden;box-shadow:0 2px 4px rgba(43,51,81,0.03);display:grid;grid-template-columns:5px 1fr" style-hover="box-shadow:0 16px 40px rgba(43,51,81,0.09)">
+            <div style="background:#13928A"></div>
+            <div style="padding:34px 36px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:start">
+              <div>
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+                  <div style="width:54px;height:54px;border-radius:14px;background:#2B3351;display:grid;place-items:center;flex-shrink:0">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd3cb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ d.icon }}"></path></svg>
+                  </div>
+                  <div>
+                    <div style="font-size:12px;color:#13928A;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">{{ d.tag }}</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.01em">{{ d.title }}</div>
+                  </div>
+                </div>
+                <p style="margin:0 0 20px;font-size:15px;line-height:1.65;color:#4b5570;max-width:600px">{{ d.desc }}</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 24px">
+                  <sc-for list="{{ d.points }}" as="pt" hint-placeholder-count="4">
+                    <div style="display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.5;color:#3a445f">
+                      <div style="width:18px;height:18px;border-radius:50%;background:rgba(19,146,138,0.12);display:grid;place-items:center;flex-shrink:0;margin-top:1px"><div style="width:9px;height:5px;border-left:2px solid #13928A;border-bottom:2px solid #13928A;transform:rotate(-45deg);margin-top:-2px"></div></div>
+                      {{ pt }}
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="text-align:right;white-space:nowrap;border-left:1px solid #eef0f4;padding-left:32px;align-self:stretch;display:flex;flex-direction:column;justify-content:center">
+                <div style="font-size:11.5px;color:#6b7590;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">{{ d.priceLabel }}</div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.02em;color:#2B3351">{{ d.price }}</div>
+                <div style="font-size:12.5px;color:#6b7590;margin-bottom:18px">{{ d.per }}</div>
+                <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:14px;padding:12px 22px;border-radius:9px;display:inline-block;text-align:center" style-hover="background:#0e756f;color:#ffffff">Get a Quote</a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans" data-screen-label="Comparison" style="padding:80px 24px;background:#F5F6F8">
+    <div style="max-width:1000px;margin:0 auto">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:-0.02em;margin:0 0 32px;text-align:center;text-wrap:pretty">What's included in each plan</h2>
+      <div style="border:1px solid #e6e8ee;border-radius:14px;overflow:hidden">
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;background:#2B3351;color:#ffffff;font-weight:600;font-size:13.5px">
+          <div style="padding:14px 18px">Feature</div>
+          <div style="padding:14px 10px;text-align:center">Static Site</div>
+          <div style="padding:14px 10px;text-align:center">E-commerce</div>
+          <div style="padding:14px 10px;text-align:center">Lead Gen</div>
+          <div style="padding:14px 10px;text-align:center">SEO</div>
+        </div>
+        <sc-for list="{{ compareRows }}" as="row" hint-placeholder-count="8">
+          <div style="{{ row.style }}">
+            <div style="padding:13px 18px;font-size:14px;font-weight:500">{{ row.label }}</div>
+            <div style="padding:13px 10px;text-align:center;font-size:15px;color:#13928A;font-weight:700">{{ row.a }}</div>
+            <div style="padding:13px 10px;text-align:center;font-size:15px;color:#13928A;font-weight:700">{{ row.b }}</div>
+            <div style="padding:13px 10px;text-align:center;font-size:15px;color:#13928A;font-weight:700">{{ row.c }}</div>
+            <div style="padding:13px 10px;text-align:center;font-size:15px;color:#13928A;font-weight:700">{{ row.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="padding:80px 24px;background:#ffffff">
+    <div style="max-width:760px;margin:0 auto">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:-0.02em;margin:0 0 32px;text-align:center">Frequently asked questions</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
+          <div style="background:#ffffff;border:1px solid #e6e8ee;border-radius:12px;overflow:hidden">
+            <button onClick="{{ q.toggle }}" style="width:100%;background:none;border:none;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;color:#2B3351;text-align:left">
+              {{ q.question }}
+              <span style="{{ q.chevStyle }}">+</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 22px 20px;font-size:14.5px;line-height:1.65;color:#4b5570">{{ q.answer }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align:center;margin-top:44px">
+        <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:15px;padding:14px 28px;border-radius:10px;display:inline-block" style-hover="background:#0e756f;color:#ffffff">Get a Quote for Your Business</a>
+      </div>
+    </div>
+  </section>
+</div>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+<a href="https://api.whatsapp.com/send/?phone=919483882266&amp;text=Hi,%20I%20would%20like%20to%20know%20more%20about%20your%20services!" target="_blank" rel="noopener" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;z-index:200;width:58px;height:58px;background:#13928A;border-radius:50%;box-shadow:0 8px 24px rgba(19,146,138,0.4);display:grid;place-items:center" style-hover="background:#0e756f"><img src="./whatsapp.svg" alt="WhatsApp" style="width:30px;height:30px;display:block"></a>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openFaq: 0 };
+  renderVals() {
+    const baseCard = 'position:relative;background:#ffffff;border-radius:16px;padding:30px 26px;border:1px solid #e6e8ee;display:flex;flex-direction:column';
+    const featCard = 'position:relative;background:#ffffff;border-radius:16px;padding:30px 26px;border:2px solid #13928A;display:flex;flex-direction:column;box-shadow:0 12px 32px rgba(19,146,138,0.12)';
+    const faqData = [
+      ['Is hosting included?', 'First-year hosting and SSL are included in every website plan. From year two, hosting renews at a small annual fee, and we handle everything technical for you.'],
+      ['How long does delivery take?', 'Static websites typically go live in 7–10 days; e-commerce stores in 2–3 weeks. You get an exact timeline in your estimate before we start.'],
+      ['Do I own the website?', 'Yes, 100%. The domain, the content and the site are yours. If you ever want to move elsewhere, we hand over everything with no lock-in.'],
+      ['What about GST invoices?', 'We are a registered company and issue proper GST invoices for every payment, useful for your business accounting and input credit.'],
+      ['Can I update the website myself?', 'Yes. E-commerce stores come with a simple dashboard for products and orders. For static sites, small updates are covered under maintenance. Just WhatsApp us.']
+    ];
+    return {
+      heroStats: [
+        { big: '₹6,999', small: 'Websites starting at' },
+        { big: '7–10 days', small: 'Typical delivery' },
+        { big: '100+', small: 'Projects delivered' },
+        { big: 'GST', small: 'Invoiced clearly' }
+      ],
+      details: [
+        { tag: 'Websites', icon: 'M3 5h18v14H3z M3 9h18 M6 7h.01', title: 'Static Business Website', desc: 'A clean, fast, mobile-friendly website that tells customers who you are, what you offer and how to reach you. Perfect for shops, clinics, restaurants and service businesses.', priceLabel: 'One-time', price: '₹6,999', per: '+ GST',
+          points: ['Up to 8 pages', 'WhatsApp click-to-chat', 'Google Maps integration', 'Lead capture forms', 'Mobile responsive design', 'Basic SEO setup'] },
+        { tag: 'Online store', icon: 'M6 8h12l-1.2 12H7.2L6 8z M9 11V7a3 3 0 016 0v4', title: 'E-commerce Website', desc: 'A full online store so customers can browse, pay and get their orders delivered. We set up payments, shipping and an easy dashboard so you stay in control.', priceLabel: 'One-time', price: '₹9,999', per: '+ GST',
+          points: ['Up to 20 products', 'Payment gateway (UPI/cards)', 'Shipping setup', 'Order management dashboard', 'Mobile responsive design', 'Basic SEO setup'] },
+        { tag: 'Marketing', icon: 'M3 17l6-6 4 4 8-9 M15 6h6v6', title: 'Lead Generation (Ads)', desc: 'We run and manage ads on Meta, Instagram and Google so the right people find you and send enquiries straight to your phone or WhatsApp.', priceLabel: 'Starting / month', price: '₹2,999', per: '+ GST',
+          points: ['Meta (Facebook) Ads', 'Instagram Ads', 'Google Ads', 'Monthly management', 'Performance tracking'] },
+        { tag: 'Marketing', icon: 'M11 5a6 6 0 100 12 6 6 0 000-12z M21 21l-4.3-4.3', title: 'SEO (Search Engine Optimization)', desc: 'Show up when nearby customers search on Google and Maps. We optimize your site and Google Business Profile to rank for what you actually sell.', priceLabel: 'Starting / month', price: '₹5,999', per: '+ GST',
+          points: ['On-page SEO optimization', 'Google Business Profile / Maps ranking', 'Local & Indian keyword research', 'Monthly performance reports'] }
+      ],
+      plans: [
+        { title: 'Static Business Website', tagline: 'For shops, restaurants, clinics and service businesses.', price: '₹6,999', per: '+ GST · one-time', cardStyle: baseCard, badge: '',
+          features: ['Up to 8 pages', 'WhatsApp integration', 'Google Maps integration', 'Lead capture forms', 'Mobile responsive design', 'Basic SEO setup'] },
+        { title: 'E-commerce Website', tagline: 'Sell online with payments, shipping and orders handled.', price: '₹9,999', per: '+ GST · one-time', cardStyle: featCard, badge: 'Most Popular',
+          features: ['Up to 20 products', 'Payment gateway integration', 'Shipping setup', 'Order management', 'Mobile responsive design', 'Basic SEO setup'] },
+        { title: 'Lead Generation', tagline: 'Ads that bring real enquiries, managed month to month.', price: '₹2,999', per: '+ GST · starting / month', cardStyle: baseCard, badge: '',
+          features: ['Meta (Facebook) Ads', 'Instagram Ads', 'Google Ads', 'Monthly management', 'Performance tracking'] },
+        { title: 'SEO', tagline: 'Rank higher on Google and Maps for local searches.', price: '₹5,999', per: '+ GST · / month', cardStyle: baseCard, badge: '',
+          features: ['On-page SEO optimization', 'Google Business Profile / Maps ranking', 'Local & Indian keyword research', 'Monthly performance reports'] }
+      ],
+      compareRows: [
+        ['Pages / products', 'Up to 8 pages', 'Up to 20 products', '–', '–'],
+        ['WhatsApp integration', '✓', '✓', '–', '–'],
+        ['Google Maps integration', '✓', '✓', '–', '✓'],
+        ['Lead capture forms', '✓', '✓', '✓', '–'],
+        ['Payment gateway', '–', '✓', '–', '–'],
+        ['Ad campaign management', '–', '–', '✓', '–'],
+        ['Google ranking work', 'Basic', 'Basic', '–', '✓'],
+        ['Monthly reporting', '–', '–', '✓', '✓']
+      ].map((r, i) => ({ label: r[0], a: r[1], b: r[2], c: r[3], d: r[4], style: 'display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;align-items:center;background:' + (i % 2 ? '#F5F6F8' : '#ffffff') + ';border-top:1px solid #eef0f4' })),
+      faqs: faqData.map(([question, answer], i) => ({
+        question, answer,
+        open: this.state.openFaq === i,
+        toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })),
+        chevStyle: 'font-size:22px;font-weight:400;color:#13928A;flex-shrink:0;transition:transform 0.2s;transform:rotate(' + (this.state.openFaq === i ? '45deg' : '0deg') + ')'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

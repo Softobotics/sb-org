@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>body{margin:0} a{color:#13928A;text-decoration:none} a:hover{color:#0e756f}</style>
+</helmet>
+<div style="position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid #e6e8ee;font-family:'Public Sans',sans-serif">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="Home.dc.html" style="display:flex;align-items:center;text-decoration:none">
+      <img src="./logo.svg" alt="Softobotics" style="height:36px;width:auto;display:block">
+    </a>
+    <nav style="display:flex;align-items:center;gap:28px">
+      <sc-for list="{{ links }}" as="lnk" hint-placeholder-count="5">
+        <a href="{{ lnk.href }}" style="{{ lnk.style }}" style-hover="color:#13928A">{{ lnk.label }}</a>
+      </sc-for>
+      <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:14px;padding:11px 20px;border-radius:8px;white-space:nowrap" style-hover="background:#0e756f;color:#ffffff">Get Free Consultation</a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1280px&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;services&quot;,&quot;about&quot;,&quot;portfolio&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const base = 'font-size:15px;font-weight:500;color:#2B3351;text-decoration:none';
+    const act = 'font-size:15px;font-weight:700;color:#13928A;text-decoration:none';
+    const pages = [['home','Home','Home.dc.html'],['services','Services','Services.dc.html'],['about','About Us','About.dc.html'],['portfolio','Portfolio','Portfolio.dc.html'],['contact','Contact','Contact.dc.html']];
+    return { links: pages.map(([k,label,href]) => ({ label, href, style: k===active?act:base })) };
+  }
+}
+</script>
+</body>
+</html>

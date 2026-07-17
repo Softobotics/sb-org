@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>body{margin:0;background:#ffffff} a{color:#13928A;text-decoration:none} a:hover{color:#0e756f}</style>
+</helmet>
+<dc-import name="SiteNav" active="about" hint-size="100%,72px"></dc-import>
+<div style="font-family:'Public Sans',sans-serif;color:#2B3351">
+
+  <section data-screen-label="About Hero" style="background:linear-gradient(180deg,#ffffff,#F5F6F8);padding:80px 24px 64px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:56px;align-items:center">
+      <div>
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">About Softobotics</div>
+        <h1 style="font-family:'Space Grotesk',sans-serif;font-size:44px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;text-wrap:pretty">Enterprise-level expertise, small-business pricing.</h1>
+        <p style="font-size:17px;line-height:1.7;color:#4b5570;margin:0 0 16px">Softobotics was founded in 2018 in Bangalore, India. Since then, our team has grown to 50+ engineers, designers and marketers, delivering 100+ large-scale projects for clients across industries.</p>
+        <p style="font-size:17px;line-height:1.7;color:#4b5570;margin:0">Today, we bring that same technical depth to Indian small businesses, because a local boutique deserves the same quality of engineering as a big brand, at a price that makes sense.</p>
+      </div>
+      <div style="position:relative;min-height:380px">
+        <div style="position:absolute;inset:24px -8px -8px 24px;background:rgba(19,146,138,0.12);border-radius:20px"></div>
+        <div style="position:relative;width:100%;height:380px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="about-team" shape="rounded" radius="20" src="assets/about-team.jpg" placeholder="Team photo: Softobotics office, Bangalore" hint-size="100%,380px"></x-import>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Stats Bar" style="background:#2B3351;padding:44px 24px">
+    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;color:#ffffff">{{ s.big }}</div>
+          <div style="font-size:14px;color:#9fb0c8;margin-top:4px">{{ s.small }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Mission" style="padding:88px 24px;background:#ffffff">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">Our mission</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;text-wrap:pretty">Helping Indian small businesses go online affordably and professionally, without shortcuts.</h2>
+      <p style="font-size:16.5px;line-height:1.7;color:#4b5570;margin:0">Most small businesses get one of two options: an expensive agency, or a freelancer who disappears after launch. We built Softobotics to be the third option: a real in-house team with real technical depth, honest pricing, and support that continues long after your site goes live.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Why Choose Us" style="padding:88px 24px;background:#F5F6F8">
+    <div style="max-width:1200px;margin:0 auto">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;letter-spacing:-0.02em;margin:0 0 40px;text-align:center;text-wrap:pretty">Why businesses choose Softobotics</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+        <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="6">
+          <div style="background:#ffffff;border:1px solid #e6e8ee;border-radius:14px;padding:26px;display:flex;gap:16px;align-items:flex-start">
+            <div style="width:42px;height:42px;border-radius:10px;background:rgba(19,146,138,0.1);display:grid;place-items:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13928A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ r.icon }}"></path></svg></div>
+            <div>
+              <div style="font-weight:700;font-size:16px;margin-bottom:6px">{{ r.title }}</div>
+              <p style="margin:0;font-size:14px;line-height:1.6;color:#4b5570">{{ r.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Team" style="padding:88px 24px;background:#ffffff">
+    <div style="max-width:1000px;margin:0 auto">
+      <div style="text-align:center;max-width:560px;margin:0 auto 48px">
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Leadership</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;letter-spacing:-0.02em;margin:0">The people behind your project</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+        <sc-for list="{{ team }}" as="m" hint-placeholder-count="3">
+          <div style="text-align:center">
+            <div style="width:140px;height:140px;margin:0 auto 18px">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ m.slotId }}" shape="circle" src="{{ m.src }}" placeholder="Photo" hint-size="140px,140px" style="width:140px;height:140px"></x-import>
+            </div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px">{{ m.name }}</div>
+            <div style="font-size:14px;color:#13928A;font-weight:600;margin:4px 0 8px">{{ m.role }}</div>
+            <p style="margin:0 auto;font-size:13.5px;line-height:1.6;color:#4b5570;max-width:260px">{{ m.bio }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="About CTA" style="padding:80px 24px;background:#F5F6F8;text-align:center">
+    <div style="max-width:640px;margin:0 auto">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;letter-spacing:-0.02em;color:#2B3351;margin:0 0 14px;text-wrap:pretty">Let's work together</h2>
+      <p style="font-size:16px;line-height:1.6;color:#4b5570;margin:0 0 32px">Tell us about your business and we'll show you exactly how an online presence can grow it, starting with a free consultation.</p>
+      <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:16px;padding:15px 30px;border-radius:10px;display:inline-block" style-hover="background:#0e756f;color:#ffffff">Get Free Consultation</a>
+    </div>
+  </section>
+</div>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+<a href="https://api.whatsapp.com/send/?phone=919483882266&amp;text=Hi,%20I%20would%20like%20to%20know%20more%20about%20your%20services!" target="_blank" rel="noopener" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;z-index:200;width:58px;height:58px;background:#13928A;border-radius:50%;box-shadow:0 8px 24px rgba(19,146,138,0.4);display:grid;place-items:center" style-hover="background:#0e756f"><img src="./whatsapp.svg" alt="WhatsApp" style="width:30px;height:30px;display:block"></a>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      stats: [
+        { big: '2018', small: 'Founded' },
+        { big: '100+', small: 'Projects delivered' },
+        { big: '50+', small: 'Team members' },
+        { big: 'BLR', small: 'Bangalore HQ' }
+      ],
+      reasons: [
+        { icon: 'M9 12l2 2 4-4 M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3z', title: 'Proven track record', body: '100+ large-scale projects delivered since 2018. Chances are we have built something like yours before.' },
+        { icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 11a4 4 0 100-8 4 4 0 000 8 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75', title: 'In-house dedicated team', body: 'Real employees, not freelancers. Your project has a designer, a developer and a manager who stay with it.' },
+        { icon: 'M12 1v22 M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6', title: 'Genuinely affordable', body: 'Fixed, transparent pricing built for small businesses, with proper GST invoices for every payment.' },
+        { icon: 'M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z M12 7a3 3 0 100 6 3 3 0 000-6z', title: 'Local Bangalore support', body: 'We\u2019re in your timezone, we understand the Indian market, and you can even visit our office.' },
+        { icon: 'M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z', title: 'WhatsApp-first communication', body: 'No ticketing systems. Message us on WhatsApp and get a real reply from a real person.' },
+        { icon: 'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z', title: 'Ongoing maintenance', body: 'Websites need care after launch. Updates, fixes and improvements are part of how we work.' }
+      ],
+      team: [
+        { slotId: 'team-founder', name: 'Gaurav Kunal', role: 'Founder & CEO', bio: 'Started Softobotics in 2018 with one belief: small businesses deserve big-company engineering.', src: 'assets/team-founder.jpg' },
+        { slotId: 'team-tech', name: 'Ankit Kumar ', role: 'Co Founder & COO', bio: 'Leads the 20 strong engineering team behind every website and store we ship.', src: 'assets/team-tech.jpg' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

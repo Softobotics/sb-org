@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>body{margin:0;background:#ffffff} a{color:#13928A;text-decoration:none} a:hover{color:#0e756f}</style>
+</helmet>
+<dc-import name="SiteNav" active="portfolio" hint-size="100%,72px"></dc-import>
+<div style="font-family:'Public Sans',sans-serif;color:#2B3351">
+
+  <section data-screen-label="Portfolio Hero" style="background:linear-gradient(180deg,#ffffff,#F5F6F8);padding:80px 24px 64px;text-align:center">
+    <div style="max-width:680px;margin:0 auto">
+      <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">Our work</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:46px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;text-wrap:pretty">Real projects. Real results.</h1>
+      <p style="font-size:18px;line-height:1.6;color:#4b5570;margin:0">A selection of websites, stores and campaigns we've built for small businesses across India.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Business Websites" style="padding:72px 24px;background:#F5F6F8">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="margin-bottom:36px">
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">Business websites</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;letter-spacing:-0.02em;margin:0">Static websites that bring in enquiries</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px">
+        <sc-for list="{{ staticSites }}" as="p" hint-placeholder-count="2">
+          <a href="{{ p.link }}" target="_blank" rel="noopener" style="background:#ffffff;border:1px solid #e6e8ee;border-radius:16px;overflow:hidden;display:block;color:#2B3351" style-hover="border-color:#13928A">
+            <div style="height:240px;position:relative">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" shape="rect" src="{{ p.src }}" placeholder="{{ p.placeholder }}" hint-size="100%,240px"></x-import>
+            </div>
+            <div style="padding:26px">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin-bottom:8px">{{ p.title }}</div>
+              <p style="margin:0 0 16px;font-size:14.5px;line-height:1.6;color:#4b5570">{{ p.body }}</p>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><div style="display:inline-block;background:rgba(19,146,138,0.1);color:#0e756f;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px">{{ p.result }}</div><span style="color:#13928A;font-weight:600;font-size:13.5px">Visit site →</span></div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="E-commerce" style="padding:72px 24px;background:#ffffff">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="margin-bottom:36px">
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">E-commerce stores</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;letter-spacing:-0.02em;margin:0">Online stores that sell across India</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px">
+        <sc-for list="{{ ecomSites }}" as="p" hint-placeholder-count="2">
+          <a href="{{ p.link }}" target="_blank" rel="noopener" style="background:#F5F6F8;border:1px solid #e6e8ee;border-radius:16px;overflow:hidden;display:block;color:#2B3351" style-hover="border-color:#13928A">
+            <div style="height:240px;position:relative">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" shape="rect" src="{{ p.src }}" placeholder="{{ p.placeholder }}" hint-size="100%,240px"></x-import>
+            </div>
+            <div style="padding:26px">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin-bottom:8px">{{ p.title }}</div>
+              <p style="margin:0 0 16px;font-size:14.5px;line-height:1.6;color:#4b5570">{{ p.body }}</p>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><div style="display:inline-block;background:rgba(19,146,138,0.1);color:#0e756f;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px">{{ p.result }}</div><span style="color:#13928A;font-weight:600;font-size:13.5px">Visit site →</span></div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Case Study" style="padding:72px 24px;background:#2B3351;color:#ffffff">
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:48px;align-items:center">
+      <div>
+        <div style="color:#5fd3cb;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Lead generation case study</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:32px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 16px;text-wrap:pretty">150 qualified leads in 7 days for Skyline Properties</h2>
+        <p style="font-size:15.5px;line-height:1.7;color:#b7c0d4;margin:0 0 28px">A Bangalore real estate business came to us with zero online lead flow. We built a landing page, set up Meta and Google campaigns targeted at local homebuyers, and connected every enquiry straight to their WhatsApp.</p>
+        <div style="display:flex;gap:36px;flex-wrap:wrap">
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#5fd3cb">150</div><div style="font-size:13px;color:#9fb0c8">Leads in 30 days</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#5fd3cb">₹86</div><div style="font-size:13px;color:#9fb0c8">Avg. cost per lead</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#5fd3cb">12</div><div style="font-size:13px;color:#9fb0c8">Site visits booked</div></div>
+        </div>
+      </div>
+      <div style="height:340px;position:relative">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="case-skyline" shape="rounded" radius="16" src="assets/case-skyline.jpg" placeholder="Ads dashboard / campaign results screenshot" hint-size="100%,340px"></x-import>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Portfolio CTA" style="padding:80px 24px;background:#F5F6F8;text-align:center">
+    <div style="max-width:600px;margin:0 auto">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:pretty">Want results like this?</h2>
+      <p style="font-size:16px;line-height:1.6;color:#4b5570;margin:0 0 30px">Every project here started with a free consultation. Yours can too.</p>
+      <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:16px;padding:15px 30px;border-radius:10px;display:inline-block" style-hover="background:#0e756f;color:#ffffff">Get a Free Consultation</a>
+    </div>
+  </section>
+</div>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+<a href="https://api.whatsapp.com/send/?phone=919483882266&amp;text=Hi,%20I%20would%20like%20to%20know%20more%20about%20your%20services!" target="_blank" rel="noopener" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;z-index:200;width:58px;height:58px;background:#13928A;border-radius:50%;box-shadow:0 8px 24px rgba(19,146,138,0.4);display:grid;place-items:center" style-hover="background:#0e756f"><img src="./whatsapp.svg" alt="WhatsApp" style="width:30px;height:30px;display:block"></a>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      staticSites: [
+        { link: 'https://www.roof360.in/', slotId: 'pf-restaurant', title: 'Roof360', body: 'Delivering trusted real estate solutions for over 15 years.', result: 'Bookings up ~2×', placeholder: 'Restaurant website screenshot', src: 'assets/pf-restaurant.jpg', credit: 'Photo by Jay Wennington on Unsplash', chref: 'https://unsplash.com/@jaywennington' },
+        { link: 'https://www.designcafe.com/', slotId: 'pf-salon', title: 'Design Cafe', body: 'Service catalogue, price list and appointment enquiry form for a Chennai salon, built to turn Instagram followers into bookings.', result: '40+ enquiries / month', placeholder: 'Salon website screenshot', src: 'assets/pf-salon.jpg', credit: 'Photo by Adam Winger on Unsplash', chref: 'https://unsplash.com/@awcreativeut' }
+      ],
+      ecomSites: [
+        { link: 'https://myfabpoint.com/', slotId: 'pf-clothing', title: 'Fab Point ', body: '20-product store with Razorpay payments, size guides and pan-India shipping for a Bangalore ethnic-wear brand.', result: 'Selling in 14 states', placeholder: 'Clothing store screenshot', src: 'assets/pf-clothing.jpg', credit: 'Photo by Clark Street Mercantile on Unsplash', chref: 'https://unsplash.com/@mercantile' },
+        { link: 'https://thegreenzio.com/', slotId: 'pf-handicrafts', title: 'The GreenZio', body: 'Online store for handmade decor with COD + prepaid payments, order tracking and WhatsApp order updates.', result: '200+ orders in 3 months', placeholder: 'Handicrafts store screenshot', src: 'assets/pf-handicrafts.jpg', credit: 'Photo by Swapnil Dwivedi on Unsplash', chref: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

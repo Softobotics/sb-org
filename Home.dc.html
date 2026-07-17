@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>body{margin:0;background:#ffffff} a{color:#13928A;text-decoration:none} a:hover{color:#0e756f} input,select,textarea{font-family:'Public Sans',sans-serif}</style>
+</helmet>
+<dc-import name="SiteNav" active="home" hint-size="100%,72px"></dc-import>
+<div style="font-family:'Public Sans',sans-serif;color:#2B3351">
+
+  <!-- HERO -->
+  <section data-screen-label="Hero" style="background:linear-gradient(180deg,#ffffff 0%,#F5F6F8 100%);padding:96px 24px 80px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:56px;align-items:center">
+      <div>
+        <div style="display:inline-block;background:rgba(19,146,138,0.1);color:#0e756f;font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:24px">For Indian businesses</div>
+        <h1 style="font-family:'Space Grotesk',sans-serif;font-size:52px;line-height:1.08;letter-spacing:-0.03em;margin:0 0 20px;text-wrap:pretty">Get a modern website &amp; online store for your business, built in <span style="color: rgb(19, 146, 138);">days, not months.</span></h1>
+        <p style="font-size:19px;line-height:1.6;color:#4b5570;margin:0 0 32px;max-width:540px">Softobotics helps shop owners, restaurants, boutiques and local brands across India go online professionally. Clear pricing, fast delivery, and support in a language you actually understand.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px">
+          <a href="#lead-form" onClick="{{ scrollToForm }}" style="background:#13928A;color:#ffffff;font-weight:600;font-size:16px;padding:15px 28px;border-radius:10px" style-hover="background:#0e756f;color:#ffffff">Get Free Consultation</a>
+          <a href="Services.dc.html" style="background:#ffffff;color:#2B3351;font-weight:600;font-size:16px;padding:15px 28px;border-radius:10px;border:1.5px solid #d5d9e2" style-hover="border-color:#13928A;color:#13928A">Services</a>
+        </div>
+        <div style="display:flex;gap:28px;flex-wrap:wrap">
+          <sc-for list="{{ trustStats }}" as="st" hint-placeholder-count="4">
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#2B3351">{{ st.big }}</div>
+              <div style="font-size:13px;color:#6b7590">{{ st.small }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="position:relative;min-height:420px">
+        <div style="position:absolute;inset:24px -8px -8px 24px;background:rgba(19,146,138,0.12);border-radius:20px"></div>
+        <div style="position:relative;width:100%;height:420px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-shot" shape="rounded" radius="20" src="assets/hero.jpg" placeholder="Hero: website mockup on laptop + phone" hint-size="100%,420px"></x-import>
+          <div style="position:absolute;bottom:-18px;right:-14px;background:#ffffff;border-radius:14px;box-shadow:0 12px 32px rgba(43,51,81,0.18);padding:14px 20px;display:flex;align-items:center;gap:12px">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(19,146,138,0.12);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#13928A;font-size:17px">↗</div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:#2B3351">150 leads in 7 days</div>
+              <div style="font-size:12px;color:#6b7590">Latest client campaign</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ONLINE -->
+  <section data-screen-label="Why Online" style="padding:88px 24px;background:#ffffff">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="max-width:640px;margin-bottom:48px">
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Why go online</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 16px;text-wrap:pretty">Your customers are already searching online. Can they find you?</h2>
+        <p style="font-size:17px;line-height:1.65;color:#4b5570;margin:0">A professional website makes your business look credible, shows up on Google, and turns visitors into paying customers, even while you sleep.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+        <sc-for list="{{ whyCards }}" as="c" hint-placeholder-count="4">
+          <div style="background:#F5F6F8;border-radius:14px;padding:28px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;color:#13928A;margin-bottom:10px">{{ c.stat }}</div>
+            <div style="font-weight:700;font-size:16px;margin-bottom:8px">{{ c.title }}</div>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#4b5570">{{ c.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:40px">
+        <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:10px;display:inline-block" style-hover="background:#0e756f;color:#ffffff">Talk to Us About Your Business</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section data-screen-label="How It Works" style="padding:88px 24px;background:#2B3351;color:#ffffff">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="text-align:center;max-width:620px;margin:0 auto 56px">
+        <div style="color:#5fd3cb;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">How it works</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:pretty">From first call to live website in 5 clear steps</h2>
+        <p style="font-size:16px;line-height:1.6;color:#b7c0d4;margin:0">No jargon, no surprises. You always know what happens next and what it costs.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px">
+            <div style="width:40px;height:40px;border-radius:10px;background:#13928A;color:#ffffff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;display:grid;place-items:center;margin-bottom:16px">{{ s.n }}</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;margin-bottom:8px">{{ s.title }}</div>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:#b7c0d4">{{ s.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align:center;margin-top:44px">
+        <a href="#lead-form" onClick="{{ scrollToForm }}" style="background:#13928A;color:#ffffff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:10px;display:inline-block" style-hover="background:#0e756f;color:#ffffff">Start With a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section data-screen-label="Services" style="padding:88px 24px;background:#F5F6F8">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:44px">
+        <div style="max-width:560px">
+          <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Our services</div>
+          <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.15;letter-spacing:-0.02em;margin:0;text-wrap:pretty">Everything your business needs to win online</h2>
+        </div>
+        <a href="Services.dc.html" style="font-weight:600;font-size:15px;color:#13928A;white-space:nowrap">View All Services →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+        <sc-for list="{{ services }}" as="sv" hint-placeholder-count="4">
+          <div style="background:#ffffff;border-radius:14px;padding:28px;border:1px solid #e6e8ee;display:flex;flex-direction:column;gap:12px" style-hover="border-color:#13928A">
+            <div style="width:42px;height:42px;border-radius:10px;background:rgba(19,146,138,0.1);display:grid;place-items:center;margin-bottom:6px">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13928A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ sv.icon }}"></path></svg>
+            </div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px">{{ sv.title }}</div>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#4b5570;flex:1">{{ sv.body }}</p>
+            <div style="font-weight:700;font-size:15px;color:#2B3351;padding-top:8px;border-top:1px solid #eef0f4">{{ sv.price }} <span style="font-weight:500;font-size:12px;color:#6b7590">{{ sv.gst }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROW BEYOND -->
+  <section data-screen-label="Grow Beyond" style="padding:88px 24px;background:#ffffff">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:56px;align-items:center">
+      <div>
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Grow beyond the website</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 16px;text-wrap:pretty">We don't just build your website. We help you get customers from it.</h2>
+        <p style="font-size:16px;line-height:1.65;color:#4b5570;margin:0 0 28px">A website is step one. Real growth comes from showing up where your customers spend time: Instagram, Google and Maps.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+          <sc-for list="{{ growth }}" as="g" hint-placeholder-count="3">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:22px;height:22px;border-radius:50%;background:rgba(19,146,138,0.12);display:grid;place-items:center;flex-shrink:0;margin-top:2px">
+                <div style="width:8px;height:8px;background:#13928A;border-radius:50%"></div>
+              </div>
+              <div>
+                <div style="font-weight:700;font-size:15.5px">{{ g.title }}</div>
+                <div style="font-size:14px;line-height:1.55;color:#4b5570">{{ g.body }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <a href="Contact.dc.html" style="background:#13928A;color:#ffffff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:10px;display:inline-block" style-hover="background:#0e756f;color:#ffffff">Ask About Growth Packages</a>
+      </div>
+      <div style="position:relative;min-height:380px">
+        <div style="position:absolute;inset:-8px 24px 24px -8px;background:#F5F6F8;border-radius:20px"></div>
+        <div style="position:relative;width:100%;height:380px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="growth-shot" shape="rounded" radius="20" src="assets/growth.jpg" placeholder="Growth: ads dashboard / Instagram grid" hint-size="100%,380px"></x-import>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PREVIEW -->
+  <section data-screen-label="Portfolio Preview" style="padding:88px 24px;background:#F5F6F8">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:44px">
+        <div style="max-width:560px">
+          <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Recent work</div>
+          <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.15;letter-spacing:-0.02em;margin:0;text-wrap:pretty">Built for businesses like yours</h2>
+        </div>
+        <a href="Portfolio.dc.html" style="font-weight:600;font-size:15px;color:#13928A;white-space:nowrap">See All Projects →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <sc-for list="{{ portfolio }}" as="p" hint-placeholder-count="3">
+          <a href="Portfolio.dc.html" style="background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e6e8ee;display:block;color:#2B3351" style-hover="border-color:#13928A">
+            <div style="height:190px;position:relative">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" shape="rect" src="{{ p.src }}" placeholder="{{ p.placeholder }}" hint-size="100%,190px"></x-import>
+            </div>
+            <div style="padding:20px 22px">
+              <div style="font-size:12px;font-weight:700;color:#13928A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">{{ p.tag }}</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;margin-bottom:4px">{{ p.title }}</div>
+              <div style="font-size:13.5px;color:#4b5570;line-height:1.5">{{ p.body }}</div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section data-screen-label="Testimonials" style="padding:88px 24px;background:#ffffff">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="text-align:center;max-width:560px;margin:0 auto 48px">
+        <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">What owners say</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.15;letter-spacing:-0.02em;margin:0;text-wrap:pretty">Trusted by small business owners across India</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+          <div style="background:#F5F6F8;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px">
+            <div style="color:#13928A;font-size:22px;letter-spacing:2px">★★★★★</div>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:#2B3351;flex:1">"{{ t.quote }}"</p>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:44px;height:44px;border-radius:50%;background:#2B3351;color:#ffffff;display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px">{{ t.initials }}</div>
+              <div>
+                <div style="font-weight:700;font-size:14.5px">{{ t.name }}</div>
+                <div style="font-size:13px;color:#6b7590">{{ t.role }}</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD FORM -->
+  <section id="lead-form" data-screen-label="Lead Form" style="padding:88px 24px;background:#F5F6F8">
+    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:48px;align-items:start">
+      <div style="color:#2B3351">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:36px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 16px;text-wrap:pretty">Let's build your online presence. Get a free consultation today</h2>
+        <p style="font-size:16px;line-height:1.65;color:#4b5570;margin:0 0 28px">Tell us a little about your business. We'll call you back within a few hours with honest advice and a clear estimate. No pressure, no obligation.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:#3a445f">
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:7px;height:7px;background:#13928A;border-radius:50%"></div>Free 30-minute consultation call</div>
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:7px;height:7px;background:#13928A;border-radius:50%"></div>Clear pricing before any commitment</div>
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:7px;height:7px;background:#13928A;border-radius:50%"></div>WhatsApp follow-up if you prefer chat</div>
+        </div>
+      </div>
+      <div style="background:#ffffff;border-radius:16px;padding:32px;border:1px solid #e6e8ee;box-shadow:0 12px 32px rgba(43,51,81,0.08)">
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:40px 12px">
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(19,146,138,0.12);display:grid;place-items:center;margin:0 auto 18px"><div style="width:20px;height:12px;border-left:3.5px solid #13928A;border-bottom:3.5px solid #13928A;transform:rotate(-45deg);margin-top:-6px"></div></div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Thanks! We'll be in touch.</div>
+            <p style="margin:0;font-size:15px;color:#4b5570;line-height:1.6">We usually respond within a few hours during business hours.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <input placeholder="Your name *" value="{{ fName }}" onChange="{{ setName }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <input placeholder="Business name" value="{{ fBiz }}" onChange="{{ setBiz }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <input placeholder="Phone / WhatsApp number *" value="{{ fPhone }}" onChange="{{ setPhone }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <input placeholder="Email *" value="{{ fEmail }}" onChange="{{ setEmail }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <select value="{{ fNeed }}" onChange="{{ setNeed }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box;background:#ffffff;color:#2B3351">
+              <option value="">What do you need?</option>
+              <option value="Website">Website</option>
+              <option value="E-commerce Store">E-commerce Store</option>
+              <option value="Leads &amp; Ads">Leads &amp; Ads</option>
+              <option value="Not Sure">Not Sure</option>
+            </select>
+            <textarea placeholder="Message (optional)" value="{{ fMsg }}" onChange="{{ setMsg }}" rows="3" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box;resize:vertical" style-focus="border-color:#13928A;outline:none"></textarea>
+            <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fdf0ef;color:#b3423a;font-size:13.5px;padding:11px 14px;border-radius:8px;line-height:1.5">{{ formError }}</div>
+            </sc-if>
+            <button onClick="{{ submit }}" style="background:#13928A;color:#ffffff;font-weight:700;font-size:16px;padding:15px;border:none;border-radius:10px;cursor:pointer;font-family:'Public Sans',sans-serif" style-hover="background:#0e756f">{{ submitLabel }}</button>
+            <div style="font-size:12.5px;color:#8c9ab3;text-align:center">We usually respond within a few hours.</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+</div>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+<a href="https://api.whatsapp.com/send/?phone=919483882266&amp;text=Hi,%20I%20would%20like%20to%20know%20more%20about%20your%20services!" target="_blank" rel="noopener" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;z-index:200;width:58px;height:58px;background:#13928A;border-radius:50%;box-shadow:0 8px 24px rgba(19,146,138,0.4);display:grid;place-items:center" style-hover="background:#0e756f"><img src="./whatsapp.svg" alt="WhatsApp" style="width:30px;height:30px;display:block"></a>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name:'', biz:'', phone:'', email:'', need:'', msg:'', submitted:false, sending:false, error:'' };
+  submit = async () => {
+    const { name, phone, email } = this.state;
+    if (!name.trim() || !phone.trim() || !email.trim()) {
+      this.setState({ error: 'Please fill in your name, phone number and email so we can reach you.' });
+      return;
+    }
+    this.setState({ sending: true, error: '' });
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // create free key at web3forms.com for admin@softobotics.com
+          subject: 'New lead from softobotics.com',
+          from_name: 'Softobotics Website',
+          name: this.state.name, business: this.state.biz, phone: this.state.phone,
+          email: this.state.email, need: this.state.need, message: this.state.msg
+        })
+      });
+      const data = await res.json();
+      if (data.success) this.setState({ submitted: true, sending: false });
+      else this.setState({ sending: false, error: 'Something went wrong sending your details. Please try again, or WhatsApp us directly.' });
+    } catch (e) {
+      this.setState({ sending: false, error: 'Could not reach the server. Please check your connection or WhatsApp us directly.' });
+    }
+  };
+  renderVals() {
+    const set = (k) => (e) => this.setState({ [k]: e.target.value, error: '' });
+    return {
+      scrollToForm: (e) => { e.preventDefault(); const el = document.getElementById('lead-form'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' }); },
+      trustStats: [
+        { big: '2018', small: 'Founded' },
+        { big: '100+', small: 'Large-scale projects' },
+        { big: '50+', small: 'Team members' },
+        { big: 'BLR', small: 'Bangalore, India' }
+      ],
+      whyCards: [
+        { stat: '80%', title: 'Customers check online first', body: 'Most people search Google or Instagram before visiting or calling a business. No website means no consideration.' },
+        { stat: '24/7', title: 'Your best salesperson', body: 'A website answers questions, shows your products and collects enquiries even when your shop is closed.' },
+        { stat: '3×', title: 'More credibility', body: 'A professional site with your own domain makes small businesses look established and worth trusting.' },
+        { stat: '#1', title: 'Found on Google & Maps', body: 'Show up when nearby customers search for what you sell, with WhatsApp and directions one tap away.' }
+      ],
+      steps: [
+        { n: '1', title: 'Free Consultation', body: 'We understand your business and explain how an online presence can bring you more customers.' },
+        { n: '2', title: 'Understanding Your Business', body: 'We study your products, services, customers and goals, so the site sells the way you do.' },
+        { n: '3', title: 'Timeline & Estimate', body: 'You get a clear project timeline and cost estimate upfront. No surprises, ever.' },
+        { n: '4', title: 'Delivery', body: 'Your website or store goes live, tested on mobile and ready for customers.' },
+        { n: '5', title: 'Maintenance & Support', body: 'Ongoing updates, fixes and support after launch. We stay with you as you grow.' }
+      ],
+      services: [
+        { icon: 'M3 5h18v14H3z M3 9h18 M6 7h.01', title: 'Static Business Website', body: 'Up to 8 pages with WhatsApp integration, Google Maps, lead forms and mobile-first design.', price: 'Starting ₹6,999', gst: '+ GST, one-time' },
+        { icon: 'M6 8h12l-1.2 12H7.2L6 8z M9 11V7a3 3 0 016 0v4', title: 'E-commerce Website', body: 'Up to 20 products with payment gateway, shipping setup and order management built in.', price: 'Starting ₹9,999', gst: '+ GST, one-time' },
+        { icon: 'M3 17l6-6 4 4 8-9 M15 6h6v6', title: 'Lead Generation', body: 'Meta, Instagram and Google Ads managed for you, so your ad money brings real enquiries.', price: 'Starting ₹2,999', gst: '+ GST / month' },
+        { icon: 'M11 5a6 6 0 100 12 6 6 0 000-12z M21 21l-4.3-4.3', title: 'SEO', body: 'On-page SEO, Google Business Profile ranking and local keyword targeting with monthly reports.', price: 'Starting ₹5,999', gst: '/month + GST' }
+      ],
+      growth: [
+        { title: 'Social media handling', body: 'We manage your Instagram and Facebook: posts, replies and a consistent brand presence.' },
+        { title: 'Ads that generate leads', body: 'Targeted Meta, Instagram and Google campaigns that bring enquiries, not just clicks.' },
+        { title: 'Google Maps & Business Profile', body: 'Get listed, optimized and ranking so nearby customers find you first.' }
+      ],
+      portfolio: [
+        { slotId: 'pf-restaurant', tag: 'Business Website', title: 'Nandini Family Restaurant', body: '8-page website with menu, table booking form and WhatsApp ordering.', placeholder: 'Restaurant website screenshot', src: 'assets/pf-restaurant.jpg' },
+        { slotId: 'pf-clothing', tag: 'E-commerce', title: 'Vastra Clothing Co.', body: 'Online store with 20 products, Razorpay payments and shipping.', placeholder: 'Clothing store screenshot', src: 'assets/pf-clothing.jpg' },
+        { slotId: 'pf-leads', tag: 'Lead Generation', title: 'Skyline Properties', body: '150 qualified leads in 30 days via Meta and Google ad campaigns.', placeholder: 'Ads dashboard screenshot', src: 'assets/pf-leads.jpg' }
+      ],
+      testimonials: [
+        { initials: 'PR', name: 'Priya Raghavan', role: 'Boutique owner, Chennai', quote: 'My boutique finally looks as good online as it does in person. Orders now come through the website and WhatsApp daily. Worth every rupee.' },
+        { initials: 'AK', name: 'Arjun Kamath', role: 'Restaurant owner, Bangalore', quote: 'They set up our menu, Google Maps and online orders in under two weeks. Weekend bookings have nearly doubled since we went live.' },
+        { initials: 'MS', name: 'Meera Shah', role: 'Handicrafts retailer, Jaipur', quote: 'I was nervous about going online, but the team explained everything in simple terms. Now I sell to customers all over India.' }
+      ],
+      fName: this.state.name, fBiz: this.state.biz, fPhone: this.state.phone, fEmail: this.state.email, fNeed: this.state.need, fMsg: this.state.msg,
+      setName: set('name'), setBiz: set('biz'), setPhone: set('phone'), setEmail: set('email'), setNeed: set('need'), setMsg: set('msg'),
+      submit: this.submit,
+      submitted: this.state.submitted, notSubmitted: !this.state.submitted,
+      formError: this.state.error,
+      submitLabel: this.state.sending ? 'Sending…' : 'Get My Free Quote'
+    };
+  }
+}
+</script>
+</body>
+</html>

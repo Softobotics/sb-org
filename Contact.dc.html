@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>body{margin:0;background:#ffffff} a{color:#13928A;text-decoration:none} a:hover{color:#0e756f} input,select,textarea{font-family:'Public Sans',sans-serif}</style>
+</helmet>
+<dc-import name="SiteNav" active="contact" hint-size="100%,72px"></dc-import>
+<div style="font-family:'Public Sans',sans-serif;color:#2B3351">
+
+  <section data-screen-label="Contact Hero" style="background:linear-gradient(180deg,#ffffff,#F5F6F8);padding:72px 24px 56px;text-align:center">
+    <div style="max-width:640px;margin:0 auto">
+      <div style="color:#13928A;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">Contact us</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:44px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 16px;text-wrap:pretty">Let's talk about your business</h1>
+      <p style="font-size:17px;line-height:1.6;color:#4b5570;margin:0">Fill the form, call, or WhatsApp us, whichever works for you. We usually respond within a few hours.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Contact Body" style="padding:56px 24px 88px;background:#F5F6F8">
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px;align-items:start">
+      <div style="background:#ffffff;border-radius:16px;padding:34px;border:1px solid #e6e8ee">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:-0.02em;margin:0 0 22px">Get your free consultation</h2>
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:40px 12px">
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(19,146,138,0.12);display:grid;place-items:center;margin:0 auto 18px"><div style="width:20px;height:12px;border-left:3.5px solid #13928A;border-bottom:3.5px solid #13928A;transform:rotate(-45deg);margin-top:-6px"></div></div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Thanks! We'll be in touch.</div>
+            <p style="margin:0;font-size:15px;color:#4b5570;line-height:1.6">We usually respond within a few hours during business hours.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <input placeholder="Your name *" value="{{ fName }}" onChange="{{ setName }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <input placeholder="Business name" value="{{ fBiz }}" onChange="{{ setBiz }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <input placeholder="Phone / WhatsApp number *" value="{{ fPhone }}" onChange="{{ setPhone }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <input placeholder="Email *" value="{{ fEmail }}" onChange="{{ setEmail }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box" style-focus="border-color:#13928A;outline:none">
+            <select value="{{ fNeed }}" onChange="{{ setNeed }}" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box;background:#ffffff;color:#2B3351">
+              <option value="">What do you need?</option>
+              <option value="Website">Website</option>
+              <option value="E-commerce Store">E-commerce Store</option>
+              <option value="Leads &amp; Ads">Leads &amp; Ads</option>
+              <option value="Not Sure">Not Sure</option>
+            </select>
+            <textarea placeholder="Message (optional)" value="{{ fMsg }}" onChange="{{ setMsg }}" rows="4" style="padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:9px;font-size:15px;width:100%;box-sizing:border-box;resize:vertical" style-focus="border-color:#13928A;outline:none"></textarea>
+            <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fdf0ef;color:#b3423a;font-size:13.5px;padding:11px 14px;border-radius:8px;line-height:1.5">{{ formError }}</div>
+            </sc-if>
+            <button onClick="{{ submit }}" style="background:#13928A;color:#ffffff;font-weight:700;font-size:16px;padding:15px;border:none;border-radius:10px;cursor:pointer;font-family:'Public Sans',sans-serif" style-hover="background:#0e756f">{{ submitLabel }}</button>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <a href="https://api.whatsapp.com/send/?phone=919483882266&amp;text=Hi,%20I%20would%20like%20to%20know%20more%20about%20your%20services!" style="background:#13928A;color:#ffffff;border-radius:16px;padding:26px;display:flex;align-items:center;gap:16px" style-hover="background:#0e756f;color:#ffffff">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.18);display:grid;place-items:center;flex-shrink:0"><img src="./whatsapp.svg" alt="WhatsApp" style="width:24px;height:24px;display:block"></div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px">Chat on WhatsApp</div>
+            <div style="font-size:13.5px;opacity:0.85">Fastest way to reach us. Tap to start a chat</div>
+          </div>
+        </a>
+        <div style="background:#ffffff;border:1px solid #e6e8ee;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px">
+          <div><div style="font-size:12px;font-weight:700;color:#6b7590;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Phone</div><a href="tel:+91 9483882266" style="font-weight:600;font-size:16px;color:#2B3351" style-hover="color:#13928A">+91 9483882266</a></div>
+          <div><div style="font-size:12px;font-weight:700;color:#6b7590;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Email</div><a href="mailto:contact@softobotics.com" style="font-weight:600;font-size:16px;color:#2B3351" style-hover="color:#13928A">contact@softobotics.com</a></div>
+          <div><div style="font-size:12px;font-weight:700;color:#6b7590;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Business hours</div><div style="font-weight:600;font-size:15px">Mon–Sat, 10:00 AM – 7:00 PM IST</div></div>
+          <div style="font-size:13.5px;color:#13928A;font-weight:600;border-top:1px solid #eef0f4;padding-top:14px">We usually respond within a few hours.</div>
+        </div>
+        <a href="https://maps.app.goo.gl/76vzduSfH6TaisU96" target="_blank" rel="noopener" style="background:#ffffff;border:1px solid #e6e8ee;border-radius:16px;overflow:hidden;display:block;color:#4b5570;text-decoration:none" style-hover="border-color:#13928A">
+          <div style="height:240px;background:#2B3351;position:relative;display:grid;place-items:center;overflow:hidden">
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:32px 32px"></div>
+            <div style="position:relative;text-align:center;color:#ffffff">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5fd3cb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-top:8px">Softobotics HQ</div>
+              <div style="font-size:12.5px;color:#9fb0c8">Devarachiknahalli, BTM 4th Stage, Bengaluru</div>
+            </div>
+          </div>
+          <div style="padding:16px 20px;font-size:13.5px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span>Ground Floor, S14, TG Abode Layout, 5th Cross Rd, Devarachiknahalli, BDA Layout BTM 4th Stage, Bengaluru, Karnataka 560076</span><span style="color:#13928A;font-weight:600;white-space:nowrap">Open in Maps →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name:'', biz:'', phone:'', email:'', need:'', msg:'', submitted:false, sending:false, error:'' };
+  submit = async () => {
+    const { name, phone, email } = this.state;
+    if (!name.trim() || !phone.trim() || !email.trim()) {
+      this.setState({ error: 'Please fill in your name, phone number and email so we can reach you.' });
+      return;
+    }
+    this.setState({ sending: true, error: '' });
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // create free key at web3forms.com for admin@softobotics.com
+          subject: 'New enquiry from softobotics.com contact page',
+          from_name: 'Softobotics Website',
+          name: this.state.name, business: this.state.biz, phone: this.state.phone,
+          email: this.state.email, need: this.state.need, message: this.state.msg
+        })
+      });
+      const data = await res.json();
+      if (data.success) this.setState({ submitted: true, sending: false });
+      else this.setState({ sending: false, error: 'Something went wrong sending your details. Please try again, or WhatsApp us directly.' });
+    } catch (e) {
+      this.setState({ sending: false, error: 'Could not reach the server. Please check your connection or WhatsApp us directly.' });
+    }
+  };
+  renderVals() {
+    const set = (k) => (e) => this.setState({ [k]: e.target.value, error: '' });
+    return {
+      fName: this.state.name, fBiz: this.state.biz, fPhone: this.state.phone, fEmail: this.state.email, fNeed: this.state.need, fMsg: this.state.msg,
+      setName: set('name'), setBiz: set('biz'), setPhone: set('phone'), setEmail: set('email'), setNeed: set('need'), setMsg: set('msg'),
+      submit: this.submit,
+      submitted: this.state.submitted, notSubmitted: !this.state.submitted,
+      formError: this.state.error,
+      submitLabel: this.state.sending ? 'Sending…' : 'Submit'
+    };
+  }
+}
+</script>
+</body>
+</html>
